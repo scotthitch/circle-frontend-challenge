@@ -2,6 +2,8 @@
 import axios from 'axios'    
 import { ref, onMounted } from 'vue'
 import type { Book } from "../types"
+import { URLFormatter } from "../lib/myUtils"
+
 
 const books = ref<Book[]>([]);
         
@@ -22,14 +24,13 @@ onMounted(() => {
 
 <template>
     <div v-for="book in books" :key="book.id">
-        <h3>{{ book.title }} - {{ book.author }}</h3>
-        <p>${{ book.price }} NZD</p>
+        <router-link :to="URLFormatter(book.title, book.id)">
+            <h3>{{ book.title }} - {{ book.author }}</h3>
+            <p>${{ book.price }} NZD</p>
+        </router-link>
         <hr /> 
     </div>
 </template>
 
 <style scoped>
-button {
-  font-weight: bold;
-}
 </style>

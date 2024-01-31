@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useRoute } from "vue-router";
 import { ref, onMounted } from 'vue'
 import router from '../router'
-import { bookTitleURLFormatter } from "../lib/myUtils"
+import { URLFormatter } from "../lib/myUtils"
 import type { Book } from "../types"
 
 // TODO: hmm need to figure out how to deal with this error
@@ -20,7 +20,7 @@ onMounted(() => {
         // Always redirect to path with correct title format.
         /* TODO: figure out if this always needs to be done or only if user inputs wrong 
         book title */
-        router.push(`/${bookTitleURLFormatter(bookData.value.title)}-${bookData.value?.id}`)
+        router.push(URLFormatter(bookData.value.title, bookData.value.id))
     })
     .catch((err) => {
         console.error(err)
