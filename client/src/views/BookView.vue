@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useRoute } from "vue-router";
 import { ref, onMounted } from 'vue'
 import router from '../router'
+import { bookTitleURLFormatter } from "../lib/myUtils"
 
 interface Book {
     id: number,
@@ -14,9 +15,6 @@ interface Book {
 // TODO: hmm need to figure out how to deal with this error
 const bookData = ref<Book>({});
 
-const bookTitleURLFormatter = (str: String): String => {
-  return str.toLowerCase().replace(/ /g, "-")
-}
 
 onMounted(() => {
     const route = useRoute()
