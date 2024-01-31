@@ -8,6 +8,7 @@ import type { Book } from "../types"
 
 // TODO: hmm need to figure out how to deal with this error
 const bookData = ref<Book>({});
+const pageHasLoaded = ref<Boolean>(false);
 
 onMounted(() => {
     const route = useRoute()
@@ -23,6 +24,8 @@ onMounted(() => {
     })
     .catch((err) => {
         console.error(err)
+    }).finally(() => {
+      pageHasLoaded.value = true;
     })
 
 })
@@ -31,7 +34,7 @@ onMounted(() => {
 
 
 <template>
-  <div>
+  <div v-if="pageHasLoaded">
     {{ bookData }}
   </div>
 </template>
