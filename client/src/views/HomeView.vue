@@ -1,13 +1,7 @@
 <script setup lang="ts">
 import axios from 'axios'    
 import { ref, onMounted } from 'vue'
-
-interface Book {
-    id: number,
-    title: string,
-    author: string,
-    price: number
-}
+import type { Book } from "../types"
 
 const books = ref<Book[]>([]);
         

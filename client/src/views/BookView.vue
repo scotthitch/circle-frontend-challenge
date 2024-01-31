@@ -4,17 +4,10 @@ import { useRoute } from "vue-router";
 import { ref, onMounted } from 'vue'
 import router from '../router'
 import { bookTitleURLFormatter } from "../lib/myUtils"
-
-interface Book {
-    id: number,
-    title: string,
-    author: string,
-    price: number
-}
+import type { Book } from "../types"
 
 // TODO: hmm need to figure out how to deal with this error
 const bookData = ref<Book>({});
-
 
 onMounted(() => {
     const route = useRoute()
@@ -44,7 +37,4 @@ onMounted(() => {
 </template>
 
 <style scoped>
-button {
-  font-weight: bold;
-}
 </style>
