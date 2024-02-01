@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import axios from 'axios'    
 import { useRoute } from "vue-router";
-import { ref, onMounted } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 import router from '../router'
 import { URLFormatter } from "../lib/myUtils"
 import type { Book } from "../types"
@@ -10,7 +10,7 @@ import type { Book } from "../types"
 const bookData = ref<Book>({});
 const pageHasLoaded = ref<Boolean>(false);
 
-onMounted(() => {
+onBeforeMount(() => {
     const route = useRoute()
 
     axios.get(`books/${route.params.id}`)
