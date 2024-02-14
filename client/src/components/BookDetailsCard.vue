@@ -3,7 +3,7 @@ import { defineProps } from 'vue'
 import type { Book } from "../types.ts"
 import { URLFormatter } from "../lib/myUtils"
 
-defineProps<{bookData: Book;}>();
+defineProps<{bookData: Book}>();
 
 </script>
 

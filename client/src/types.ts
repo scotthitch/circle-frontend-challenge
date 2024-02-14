@@ -2,5 +2,7 @@ export interface Book {
     id: number,
     title: string,
     author: string,
-    price: number
+    isbn: number,
+    price: number,
+    availableStock: number
 }

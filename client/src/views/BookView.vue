@@ -20,6 +20,7 @@ onBeforeMount(() => {
         // Always redirect to path with correct title format.
         /* TODO: figure out if this always needs to be done or only if user inputs wrong 
         book title */
+        console.log(bookData.value)
         router.push(URLFormatter(bookData.value.title, bookData.value.id))
     })
     .catch((err) => {
